@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react-client-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react-client
+  template:
+    metadata:
+      labels:
+        app: react-client
+    spec:
+      containers:
+        - name: react-client
+          image: mnali220594/react-client:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react-client-srv
+spec:
+  selector:
+    app: react-client
+  type: ClusterIP
+  ports:
+    - name: react-client
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
