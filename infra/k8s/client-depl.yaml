@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: react-client
-          image: mnali220594/react-client:latest
+          image: mnali220594/react-client
 ---
 apiVersion: v1
 kind: Service
